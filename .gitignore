@@ -1,0 +1,8 @@
+.env
+temp
+.DS_Store
+
+logs/*
+node_modules/*
+commands/*
+Dockerfile
