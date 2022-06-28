@@ -8,12 +8,13 @@ class Wallet extends BitcoinBase{
             method: "createwallet",
             params: [
                 params.name, 
-                params.disabledPrivateKey || false, 
+                params.disabledPrivateKey ? true : false, 
                 params.isBlank || false, 
                 params.passphrase || "", 
                 params.avoidReuse || false,
                 params.descriptors || false,
-                params.loadOnStartup || false
+                params.loadOnStartup || false,
+                params.externalSigner || false
             ]
         });
     }

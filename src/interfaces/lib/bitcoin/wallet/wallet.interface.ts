@@ -10,6 +10,7 @@ export interface CreateWalletBitcoinI{
     avoidReuse?: boolean
     descriptors?: boolean
     loadOnStartup?: boolean
+    externalSigner?: boolean         
 }
 
 export interface NewAddressWalletBitcoinI{
