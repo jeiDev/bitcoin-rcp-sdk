@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import path from 'path'
-import { ConfigI, DB, ENV, BitcoinConfigI } from '../interfaces/config/config.interface';
+import { ConfigI, DB, ENV, BitcoinConfigI, AppI } from '../interfaces/config/config.interface';
 
 const env: ENV = {
     name: process.env.NODE_ENV || "development",
@@ -62,7 +62,14 @@ const bitcoin: BitcoinConfigI = {
     url: `${process.env.BITCOIN_URL}`
 }
 
+const app: AppI = {
+    nodeEnv: `${process.env.NODE_ENV}`,
+    port: parseInt( `${process.env.PORT}`)
+}
+
+
 const config: ConfigI = {
+    app,
     bitcoin,
     env,
     db

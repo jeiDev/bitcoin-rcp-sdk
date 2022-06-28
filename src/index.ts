@@ -1,32 +1,16 @@
-import Bitcoin from "./lib/bitcoin";
+import core from "./core";
+import app from "./app";
+import http from "http";
+import config from "./config";
 
-const bitcoin = new Bitcoin();
-const name = "test10";
+const PORT = config.app.port;
 
-( async () => {
-    // const wallet = await bitcoin.wallet.create({
-    //     name,
-    //     loadOnStartup: true
-    // });
-    // console.log("wallet", wallet)
+const root = async () => {
+    await core();
 
-    // const address = await bitcoin.wallet.getNewAddress({nameWallet: name});
-    // console.log("address", address)
+    http.createServer(app).listen(PORT, () => {
+        console.log(`Server running http://localhost:${PORT}/`)
+    })
+}
 
-    const loadWallet = await bitcoin.wallet.loadWallet({nameWallet: name, loadOnStartup: false});
-    console.log("loadWallet", {loadWallet})
-})()
-
-
-    // .then(resp => {
-    //     console.log("load wallet", {resp})
-
-        // bitcoin.wallet.getNewAddress(name).then(resp => {
-        //     console.log("get new Address", {resp})
-        // }).catch(error => {
-        //     console.log({error})
-        // })
-    // }).catch(error => {
-    //     console.log({error})
-    // })
-    
+root();

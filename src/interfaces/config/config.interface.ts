@@ -2,6 +2,7 @@ export interface ConfigI {
     bitcoin: BitcoinConfigI
     db: DB
     env: ENV
+    app: AppI
 }
 
 export interface BitcoinConfigI {
@@ -47,3 +48,9 @@ export interface ENV {
     isProd: boolean;
     isTest: boolean;
 }
+
+export interface AppI {
+    nodeEnv: string
+    port: number
+}
+
