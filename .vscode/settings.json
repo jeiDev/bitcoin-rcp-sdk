@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "createwallet",
+        "getnewaddress",
+        "loadwallet",
+        "ormconfig",
+        "SEGWIT",
+        "typeorm"
+    ]
+}

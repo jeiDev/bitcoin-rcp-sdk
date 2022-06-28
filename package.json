@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build": "tsc -b"
   },
   "keywords": [],
   "author": "media-revolution",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "class-transformer": "0.5.1",
     "dotenv": "^16.0.1",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",

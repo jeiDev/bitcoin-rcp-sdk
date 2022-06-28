@@ -1,8 +1,40 @@
-.env
-temp
-.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-logs/*
-node_modules/*
-commands/*
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env.production
+.env.local
+.env.staging
+.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
 Dockerfile
+commands/*
+yarn.lock
+logs/*
+package-lock.json
+uploads/*
+commands/*
