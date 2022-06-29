@@ -33,7 +33,7 @@ const db: DB = {
     },
     entities: [
         path.join(__dirname, "/../database/entities/**/*.entity.{ts,js}"),
-        path.join(__dirname, "/../database/entities/**/*.view.{ts,js}"),
+        path.join(__dirname, "/../database/entities/*.view.{ts,js}"),
     ],
     migrations: [
         path.join(__dirname, "/../database/migrations/*.{ts,js}")
@@ -46,7 +46,12 @@ const db: DB = {
     ],
     subscribers: [
         path.join(__dirname, "/../database/subscribers/*.{ts,js}")
-    ]
+    ],
+    cli: {
+       entitiesDir: path.join(__dirname, "/../database/migrations"),
+       migrationsDir: path.join(__dirname, "/../database/factories"),
+       subscribersDir: path.join(__dirname, "/../database/subscribers")
+    }
 }
 
 const bitcoin: BitcoinConfigI = {
