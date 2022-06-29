@@ -32,27 +32,21 @@ const db: DB = {
         },
     },
     entities: [
-        path.join(__dirname, "/../database/**/**/*.entity.{ts,js}"),
-        path.join(__dirname, "/../database/**/**/*.view.{ts,js}"),
+        path.join(__dirname, "/../database/entities/**/*.entity.{ts,js}"),
+        path.join(__dirname, "/../database/entities/**/*.view.{ts,js}"),
     ],
     migrations: [
-        path.join(__dirname, "/../database/migrations/**/**/*.{ts,js}")
+        path.join(__dirname, "/../database/migrations/*.{ts,js}")
     ],
     seeds: [
         path.join(__dirname, "/../database/seeds/*.seed.{ts,js}")
     ],
     factories: [
-        path.join(__dirname, "/../database/factories/**/**/*.{ts,js}")
+        path.join(__dirname, "/../database/factories/*.{ts,js}")
     ],
     subscribers: [
-        path.join(__dirname, "/../database/subscribers/**/**/*.{ts,js}")
-    ],
-    cli: {
-        "entitiesDir": "src/database/entities",
-        "migrationsDir": "src/database/migrations",
-        "seedsDir": "src/database/seeds",
-        "factoriesDir": "src/database/factories"
-    }
+        path.join(__dirname, "/../database/subscribers/*.{ts,js}")
+    ]
 }
 
 const bitcoin: BitcoinConfigI = {

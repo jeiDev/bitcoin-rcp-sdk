@@ -34,7 +34,7 @@ export interface DB {
     seeds: Array<string>;
     factories: Array<string>;
     subscribers: Array<string>;
-    cli: { [key: string]: string };
+    cli?: { [key: string]: string };
 }
 
 export interface ExtraSSL {

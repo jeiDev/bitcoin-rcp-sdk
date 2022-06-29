@@ -3,13 +3,13 @@ import config from "./src/config";
 export default  {
    ...config.db,
    entities: [
-      "./src/database/entities/*.entity.ts"
+      "./src/database/entities/*.entity.{ts,js}"
    ],
    migrations: [
-      "./src/database/migrations/*.ts"
+      "./src/database/migrations/*.{ts,js}"
    ],
    subscribers: [
-      "./src/database/subscribers/*.subscribe.ts"
+      "./src/database/subscribers/*.subscribe.{ts,js}"
    ],
    cli: {
       entitiesDir: "./src/database/entities",

@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class createTableHooks1656518849799 implements MigrationInterface {
-    name = 'createTableHooks1656518849799'
+export class createTableHooks1656519236460 implements MigrationInterface {
+    name = 'createTableHooks1656519236460'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TYPE "public"."hooks_type_enum" AS ENUM('transaction.received', 'transaction.sended', 'transaction.confirmation', 'transaction.invalidated', 'block.new', 'block.mempool')`);
