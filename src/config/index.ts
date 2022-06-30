@@ -4,53 +4,53 @@ import { ConfigI, DB, ENV, BitcoinConfigI, AppI } from '../interfaces/config/con
 
 const env: ENV = {
     name: process.env.NODE_ENV || "development",
-    isProd: process.env.NODE_ENV === "production"
+    isProd: process.env.NODE_ENV === "production",
+    isTest: process.env.NODE_ENV === "test",
 }
 
 const db: DB = {
-    name: `${process.env.DB_NAME}`,
-    type: `${process.env.DB_DRIVER}`,
-    url: `${process.env.DB_URL}`,
-    host: `${process.env.DB_HOST}`,
-    port: parseInt(`${process.env.DB_PORT}`),
-    username: `${process.env.DB_USERNAME}`,
-    password: `${process.env.DB_PASSWORD}`,
-    database: `${process.env.DB_DATABASE}`,
-    ssl: process.env.DB_EXTRA_SSL === "true",
-    schema: process.env.DB_SCHEMA || "public",
-    synchronize: process.env.DB_SYNCHRONIZE === "true",
-    logging: process.env.DB_LOGGING === "true",
-    autoReconnect: process.env.DB_AUTO_RECONNECT === "true",
-    reconnectTries: parseInt(`${process.env.DB_AUTO_RECONNECT_TRIES}`),
-    reconnectInterval: parseInt(`${process.env.DB_AUTO_RECONNECT_INTERVAL}`),
+    name: `${process.env.TYPEORM_DB_NAME}`,
+    type: "postgres",
+    url: `${process.env.TYPEORM_DB_URL}`,
+    host: `${process.env.TYPEORM_DB_HOST}`,
+    port: parseInt(`${process.env.TYPEORM_DB_PORT}`),
+    username: `${process.env.TYPEORM_DB_USERNAME}`,
+    password: `${process.env.TYPEORM_DB_PASSWORD}`,
+    database: `${process.env.TYPEORM_DB_DATABASE}`,
+    ssl: process.env.TYPEORM_DB_EXTRA_SSL === "true",
+    schema: process.env.TYPEORM_DB_SCHEMA || "public",
+    synchronize: process.env.TYPEORM_DB_SYNCHRONIZE === "true",
+    logging: process.env.TYPEORM_DB_LOGGING === "true",
+    autoReconnect: process.env.TYPEORM_DB_AUTO_RECONNECT === "true",
+    reconnectTries: parseInt(`${process.env.TYPEORM_DB_AUTO_RECONNECT_TRIES}`),
+    reconnectInterval: parseInt(`${process.env.TYPEORM_DB_AUTO_RECONNECT_INTERVAL}`),
     ...(env.isProd) && {
         extra: {
             ssl: {
-                rejectUnauthorized: process.env.DB_EXTRA_SSL_REJECT_UNAUTHORIZED === "true",
+                rejectUnauthorized: process.env.TYPEORM_DB_EXTRA_SSL_REJECT_UNAUTHORIZED === "true",
             },
         },
     },
     entities: [
-        path.join(__dirname, "/../database/**/**/*.entity.{ts,js}"),
-        path.join(__dirname, "/../database/**/**/*.view.{ts,js}"),
+        path.join(__dirname, "/../database/entities/**/*.entity.{ts,js}"),
+        path.join(__dirname, "/../database/entities/*.view.{ts,js}"),
     ],
     migrations: [
-        path.join(__dirname, "/../database/migrations/**/**/*.{ts,js}")
+        path.join(__dirname, "/../database/migrations/*.{ts,js}")
     ],
     seeds: [
         path.join(__dirname, "/../database/seeds/*.seed.{ts,js}")
     ],
     factories: [
-        path.join(__dirname, "/../database/factories/**/**/*.{ts,js}")
+        path.join(__dirname, "/../database/factories/*.{ts,js}")
     ],
     subscribers: [
-        path.join(__dirname, "/../database/subscribers/**/**/*.{ts,js}")
+        path.join(__dirname, "/../database/subscribers/*.{ts,js}")
     ],
     cli: {
-        "entitiesDir": "src/database/entities",
-        "migrationsDir": "src/database/migrations",
-        "seedsDir": "src/database/seeds",
-        "factoriesDir": "src/database/factories"
+       entitiesDir: path.join(__dirname, "/../database/migrations"),
+       migrationsDir: path.join(__dirname, "/../database/factories"),
+       subscribersDir: path.join(__dirname, "/../database/subscribers")
     }
 }
 
